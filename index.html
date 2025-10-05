@@ -108,7 +108,10 @@
     <script src="./app.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+        window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').then(()=>{
+          // Force SW update check on load to avoid stale cache after deploy
+          navigator.serviceWorker.getRegistration().then(reg=>reg && reg.update());
+        }));
       }
     </script>
   </body>

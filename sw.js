@@ -1,9 +1,7 @@
-const CACHE = 'workout-diary-v1';
+const CACHE = 'workout-diary-v2';
 const ASSETS = [
   './',
-  './index.html',
-  './styles.css',
-  './app.js',
+  // Don't pre-cache HTML/JS/CSS aggressively to avoid stale UI after deploy
   './manifest.webmanifest'
 ];
 
