@@ -96,8 +96,7 @@ main { display: grid; gap: 12px; }
 .exercise-card .card-head { display: flex; align-items: center; justify-content: space-between; }
 .exercise-card .title { margin: 0; font-size: 16px; font-weight: 700; }
 .detail .title { font-size: 20px; font-weight: 700; }
-.exercise-card .card-actions { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); display: flex; gap: 8px; }
-.exercise-card .card-actions .icon-btn { margin: 0; }
+.exercise-card .card-actions { display: none; }
 .exercise-card { border-left: 4px solid transparent; }
 .exercise-card.cat-biceps { border-left-color: #EF5350; }
 .exercise-card.cat-tricesp { border-left-color: #FFC107; }

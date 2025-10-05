@@ -414,7 +414,7 @@ function renderExerciseCard(ex) {
   // Prevent navigation when clicking action buttons
   const openBtn = $('.open-detail', node);
   if (openBtn) openBtn.addEventListener('click', (e) => { e.stopPropagation(); renderDetail(ex.id); });
-  $('.more', node).addEventListener('click', (e) => { e.stopPropagation(); openExerciseMenu(ex); });
+  // Removed 'more' icon/button from exercise cards
   return node;
 }
 
