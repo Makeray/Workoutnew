@@ -1,0 +1,159 @@
+:root {
+  /* Light theme - refreshed palette */
+  --bg: #EFF0F4;
+  --panel: #FFFFFF;
+  --text: #0A285C;
+  --muted: #537091;
+  --border: #E4E7EE;
+  --chip-bg: #FFFFFF;
+  --chip-border: #E4E7EE;
+  --accent: #505C95;
+  --accent-text: #FFFFFF;
+  --danger: #FF6130;
+  --radius: 12px;
+  --shadow: none;
+  --set-bg: rgba(83, 112, 145, 0.06);
+  --set-bg-alt: #FFFFFF;
+  --tab-bg: transparent;
+  --tab-border: var(--chip-border);
+  --tab-active-bg: var(--panel);
+  --tab-active-border: var(--border);
+  --tab-count-bg: #FFFFFF;
+  --tab-count-color: var(--text);
+  --tab-count-border: var(--border);
+  --danger-bg: rgba(255,97,48,0.10);
+  --danger-border: #FFD2C4;
+  --danger-text: #FF6130;
+}
+
+/* Dark theme (Material-inspired) */
+:root[data-theme="dark"] {
+  --bg: #15141A;            /* M3 baseline dark background */
+  --panel: #22222C;         /* Surface container */
+  --text: #E6E6E6;          /* High-emphasis on dark */
+  --muted: #A5A5A5;         /* Medium-emphasis on dark */
+  --border: #22222C;        /* Outlines subdued */
+  --chip-bg: #202022;       /* Assist/chips */
+  --chip-border: #22222C;
+  --accent: #8EA4FF;        /* Slightly brighter accent on dark */
+  --accent-text: #0B0B0B;   /* Dark text on bright accent */
+  --danger: #ff6b6b;        /* Danger on dark */
+  --shadow: none;
+  /* set tiles backgrounds on dark */
+  --set-bg: #15141A;
+  --set-bg-alt: #22222C;
+  /* tabs on dark: increase contrast for active */
+  --tab-bg: transparent;
+  --tab-border: #22222C;
+  --tab-active-bg: #22222C;
+  --tab-active-border: #3a3a3a;
+  /* tab count badge on dark */
+  --tab-count-bg: #22222C;
+  --tab-count-color: #E6E6E6;
+  --tab-count-border: #3a3a3a;
+  /* danger button on dark */
+  --danger-bg: #2d1b1b;
+  --danger-border: #4a2a2a;
+  --danger-text: #ff6b6b;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; height: 100%; font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+body { background: var(--bg); color: var(--text); }
+
+#app { max-width: 498px; margin: 0 auto; padding: 24px 24px 32px; }
+
+.app-header { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 8px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand .logo { font-size: 18px; }
+.brand h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 0.2px; color: var(--text); }
+.header-actions { display: flex; gap: 8px; }
+.menu { position: absolute; right: 60px; top: 56px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 6px; z-index: 10; }
+.menu .menu-item { display: block; background: transparent; border: none; color: var(--text); padding: 8px 12px; border-radius: 8px; cursor: pointer; text-align: left; width: 160px; }
+.menu .menu-item:hover { background: var(--chip-bg); }
+
+.icon-btn { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 66px; width: 40px; height: 32px; display: grid; place-items: center; box-shadow: var(--shadow); cursor: pointer; }
+.icon-btn.primary { background: var(--accent); color: var(--accent-text); border: 1px solid transparent; font-weight: 800; }
+.icon-btn .material-symbols-outlined { font-size: 20px; line-height: 1; }
+.app-header .icon-btn { width: 40px; height: 32px; border-radius: 66px; }
+.app-header .icon-btn .material-symbols-outlined { font-size: 20px; color: var(--text); }
+
+.tabs { display: flex; gap: 12px; padding: 8px 2px 8px; overflow-x: auto; scrollbar-width: none; position: sticky; top: 0; background: linear-gradient(var(--bg), var(--bg)); z-index: 5; white-space: nowrap; font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { padding: 6px 12px; border-radius: 24px; background: var(--tab-bg); color: var(--text); border: none; cursor: pointer; white-space: nowrap; font-weight: 600; font-size: 16px; font-family: inherit; }
+.tab.active { background: var(--tab-active-bg); color: var(--text); border-color: var(--tab-active-border); box-shadow: var(--shadow); }
+.tab .count { margin-left: 6px; font-size: 12px; color: var(--text); background: var(--tab-count-bg); border: 1px solid var(--tab-count-border); padding: 0 6px; border-radius: 100px; font-weight: 600; }
+
+main { display: grid; gap: 12px; }
+
+.section-title { margin: 8px 6px 0; font-size: 16px; color: var(--text); font-weight: 700; }
+.category-title { margin: 16px 0 8px; font-size: 18px; font-weight: 700; color: var(--text); }
+/* Detail screen specific spacing for Workout History heading */
+.detail .section-title { margin: 16px 6px; }
+
+.exercise-card { background: var(--panel); border: none; border-radius: 8px; padding: 16px; box-shadow: var(--shadow); cursor: pointer; position: relative; padding-right: 56px; width: 100%; max-width: 450px; }
+.exercise-card + .exercise-card { margin-top: 8px; }
+.exercise-card .card-head { display: flex; align-items: center; justify-content: space-between; }
+.exercise-card .title { margin: 0; font-size: 16px; font-weight: 700; }
+.detail .title { font-size: 20px; font-weight: 700; }
+.exercise-card .card-actions { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); display: flex; gap: 8px; }
+.exercise-card .card-actions .icon-btn { margin: 0; }
+.exercise-card { border-left: 4px solid transparent; }
+.exercise-card.cat-biceps { border-left-color: #EF5350; }
+.exercise-card.cat-tricesp { border-left-color: #FFC107; }
+.exercise-card.cat-legs { border-left-color: #7E57C2; }
+.exercise-card.cat-chest { border-left-color: #FF7043; }
+.exercise-card.cat-back { border-left-color: #66BB6A; }
+.exercise-card.cat-shoulders { border-left-color: #42A5F5; }
+.summary { display: flex; gap: 12px; align-items: center; margin-top: 8px; color: var(--muted); justify-content: space-between; flex-wrap: nowrap; width: 100%; max-width: 300px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 4px; font-size: 14px; width: auto; }
+.chip-warmup { background: rgba(83,112,145,0.10); color: #537091; }
+.chip-training { background: rgba(255,97,48,0.10); color: #FF6130; }
+.chip-label { font-weight: 500; }
+.chip-value { font-weight: 600; color: currentColor; }
+.chip .material-symbols-outlined, .chip .chip-icon { width: 16px; height: 16px; display: inline-block; }
+
+.detail-header { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 10px; padding: 10px 0; }
+.detail-header h2 { margin: 0; font-size: 20px; font-weight: 700; }
+.detail-header .subtitle { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.detail .right-actions { display: flex; gap: 8px; }
+
+.history { display: grid; gap: 12px; }
+.day { background: var(--panel); border: none; border-radius: 16px; padding: 16px; }
+.day-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.day-head .date { color: var(--text); display: flex; align-items: center; gap: 8px; }
+.day-head .date .material-symbols-outlined { font-size: 20px; color: var(--muted); }
+.day-head .date .date-text { font-size: 14px; font-weight: 600; }
+.day-actions { display: flex; gap: 8px; }
+.set-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.set { background: var(--set-bg); border: none; border-radius: 12px; padding: 16px; text-align: center; }
+/* Remove borders from action icons inside cards */
+.exercise-card .icon-btn, .day .icon-btn { border: none; width: 20px; height: 20px; padding: 0; border-radius: 6px; }
+.exercise-card .icon-btn .material-symbols-outlined, .day .icon-btn .material-symbols-outlined { font-size: 18px; }
+.day .icon-btn.delete .material-symbols-outlined { color: #D34545; }
+.set .weight { font-weight: 900; font-size: 17px; }
+.set .caption { color: var(--muted); margin-top: 4px; font-size: 13px; }
+
+/* Workout history page tweaks */
+.detail .history .day:not(:first-child) { background: transparent; padding-top: 0; padding-bottom: 0; }
+.detail .history .day:not(:first-child) .set { background: var(--set-bg-alt); }
+.detail .history .day:not(:first-child) .day-actions { display: none; }
+
+dialog#modal { border: none; border-radius: 16px; padding: 0; background: var(--panel); color: var(--text); max-width: 420px; width: calc(100% - 24px); }
+dialog::backdrop { background: rgba(0,0,0,.6); }
+.modal-body { padding: 16px; display: grid; gap: 12px; }
+.field { display: grid; gap: 6px; }
+.field label { color: var(--muted); font-size: 13px; }
+.field input, .field select { background: var(--panel); border: 1px solid var(--border); color: var(--text); border-radius: 12px; padding: 12px; font-size: 16px; }
+.modal-actions { display: flex; gap: 8px; padding: 12px 16px 16px; }
+.btn { flex: 1; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 12px; font-weight: 800; cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-text); border: 1px solid transparent; }
+.btn.danger { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger-text); }
+
+/* Small visual nits to resemble screenshots */
+
+@media (min-width: 480px) {
+  #app { padding-top: 16px; }
+}
+
+
